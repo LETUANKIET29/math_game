@@ -1,0 +1,93 @@
+[
+    {
+      "id": "animal003",
+      "type": "bluebird",
+      "VectorX": 78,
+      "VectorY": 103,
+      "steptime": 0.1,
+      "scaleFactor": 1,
+      "sprite": 6,
+      "imageurl": "https://firebasestorage.googleapis.com/v0/b/beanmind-2911.appspot.com/o/animal_game_images%2Fblue_bird_ilde.png?alt=media&token=08212fdd-ff86-4c6f-9cd8-76988228362d"
+    },
+    {
+      "id": "animal005",
+      "type": "bluefish",
+      "VectorX": 70,
+      "VectorY": 50,
+      "steptime": 0.1,
+      "scaleFactor": 1,
+      "sprite": 6,
+      "imageurl": "https://firebasestorage.googleapis.com/v0/b/beanmind-2911.appspot.com/o/animal_game_images%2Fblue_fish_idle.png?alt=media&token=a81bc3f3-81be-4cf1-b4cf-bd37bbeb31d0"
+    },
+    {
+      "id": "animal001",
+      "type": "chicken",
+      "VectorX": 32,
+      "VectorY": 34,
+      "steptime": 0.05,
+      "scaleFactor": 2,
+      "sprite": 13,
+      "imageurl": "https://firebasestorage.googleapis.com/v0/b/beanmind-2911.appspot.com/o/animal_game_images%2Fchicken_idle.png?alt=media&token=71b17ec4-cf8d-472d-9b33-5697b241689d"
+    },
+    {
+      "id": "animal002",
+      "type": "duck",
+      "VectorX": 57.5,
+      "VectorY": 70,
+      "steptime": 0.2,
+      "scaleFactor": 1,
+      "sprite": 4,
+      "imageurl": "https://firebasestorage.googleapis.com/v0/b/beanmind-2911.appspot.com/o/animal_game_images%2Fduck_stand.png?alt=media&token=4ae54059-b795-4722-8166-4971b13ed03c"
+    },
+    {
+      "id": "animal008",
+      "type": "moonfish",
+      "VectorX": 80,
+      "VectorY": 60,
+      "steptime": 0.1,
+      "scaleFactor": 1,
+      "sprite": 6,
+      "imageurl": "https://firebasestorage.googleapis.com/v0/b/beanmind-2911.appspot.com/o/animal_game_images%2Fmoon_fish_idle.png?alt=media&token=d4543a20-2247-40e8-a9a5-4ef60be734cd"
+    },
+    {
+      "id": "animal009",
+      "type": "octopus",
+      "VectorX": 120,
+      "VectorY": 90,
+      "steptime": 0.1,
+      "scaleFactor": 1,
+      "sprite": 6,
+      "imageurl": "https://firebasestorage.googleapis.com/v0/b/beanmind-2911.appspot.com/o/animal_game_images%2Foctopus_idle.png?alt=media&token=131b617e-d127-42ac-8a26-e826b30e4160"
+    },
+    {
+      "id": "animal004",
+      "type": "redbird",
+      "VectorX": 77.5,
+      "VectorY": 100,
+      "steptime": 0.1,
+      "scaleFactor": 1,
+      "sprite": 6,
+      "imageurl": "https://firebasestorage.googleapis.com/v0/b/beanmind-2911.appspot.com/o/animal_game_images%2Fred_bird_idle.png?alt=media&token=aad89012-7526-49ce-9ce6-5f4df7fb24f0"
+    },
+    {
+      "id": "animal006",
+      "type": "redfish",
+      "VectorX": 75,
+      "VectorY": 50,
+      "steptime": 0.1,
+      "scaleFactor": 1,
+      "sprite": 6,
+      "imageurl": "https://firebasestorage.googleapis.com/v0/b/beanmind-2911.appspot.com/o/animal_game_images%2Fred_fish_idle.png?alt=media&token=fc4950a8-cbcc-4af4-a0f4-c668caea9163"
+    },
+    {
+      "id": "animal007",
+      "type": "violetfish",
+      "VectorX": 76.5,
+      "VectorY": 50,
+      "steptime": 0.1,
+      "scaleFactor": 1,
+      "sprite": 6,
+      "imageurl": "https://firebasestorage.googleapis.com/v0/b/beanmind-2911.appspot.com/o/animal_game_images%2Fviolent_fish_idle.png?alt=media&token=218d8044-089c-42cf-8534-0602dcac0d6c"
+    }
+  ]
+  

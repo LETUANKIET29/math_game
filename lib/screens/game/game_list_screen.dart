@@ -107,7 +107,7 @@ class GameListScreen extends GetView<GameController> {
       padding: const EdgeInsets.all(20),
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 3,
-        childAspectRatio: 1.4,
+        childAspectRatio: 1.9,
         crossAxisSpacing: 10.0,
         mainAxisSpacing: 10.0,
       ),
@@ -174,38 +174,6 @@ class GameListScreen extends GetView<GameController> {
                         ),
                       ),
                       const SizedBox(height: 10),
-                      Row(
-                        children: [
-                          ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              foregroundColor: Colors.white,
-                              backgroundColor: Colors.deepPurple,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(5),
-                              ),
-                              elevation: 5,
-                            ),
-                            onPressed: () {
-                              Get.toNamed(
-                                GameLeaderboardScreen.routeName,
-                                arguments: GameModel(
-                                  id: game['id']!,
-                                  title: game['name']!,
-                                  imageUrl: game['image'] ?? '',
-                                  description: game['description'] ?? '',
-                                ),
-                              );
-                            },
-                            child: const Row(
-                              children: [
-                                Icon(AppIcons.trophyoutline),
-                                SizedBox(width: 5),
-                                Text('Bảng xếp hạng'),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
                     ],
                   ),
                 );
