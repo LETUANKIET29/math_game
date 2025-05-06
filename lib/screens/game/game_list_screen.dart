@@ -149,6 +149,65 @@ class GameListScreen extends GetView<GameController> {
                             width: double.infinity,
                             height: imageHeight,
                             fit: BoxFit.cover,
+                            errorBuilder: (context, error, stackTrace) {
+                              // Nếu không tải được hình ảnh từ Firebase, thử sử dụng hình ảnh local
+                              String localImagePath = '';
+                              if (game['name']
+                                  .toString()
+                                  .toLowerCase()
+                                  .contains('happy farm')) {
+                                localImagePath =
+                                    'assets/images/game_thumbnail/happy_farm.png';
+                              } else if (game['name']
+                                  .toString()
+                                  .toLowerCase()
+                                  .contains('ocean')) {
+                                localImagePath =
+                                    'assets/images/game_thumbnail/ocean_adventure.png';
+                              } else if (game['name']
+                                  .toString()
+                                  .toLowerCase()
+                                  .contains('sắp xếp số')) {
+                                localImagePath =
+                                    'assets/images/game_thumbnail/number_sort.png';
+                              } else if (game['name']
+                                  .toString()
+                                  .toLowerCase()
+                                  .contains('chẵn lẻ')) {
+                                localImagePath =
+                                    'assets/images/game_thumbnail/odd_and_even.png';
+                              } else if (game['name']
+                                  .toString()
+                                  .toLowerCase()
+                                  .contains('đi chợ')) {
+                                localImagePath =
+                                    'assets/images/game_thumbnail/shopping.png';
+                              } else if (game['name']
+                                  .toString()
+                                  .toLowerCase()
+                                  .contains('toán học')) {
+                                localImagePath =
+                                    'assets/images/game_thumbnail/mathgame1v1.png';
+                              }
+
+                              if (localImagePath.isNotEmpty) {
+                                return Image.asset(
+                                  localImagePath,
+                                  width: double.infinity,
+                                  height: imageHeight,
+                                  fit: BoxFit.cover,
+                                );
+                              }
+
+                              return Container(
+                                width: double.infinity,
+                                height: imageHeight,
+                                color: Colors.grey.shade200,
+                                child: const Center(
+                                  child: Text('Không thể tải hình ảnh'),
+                                ),
+                              );
+                            },
                           ),
                         ],
                       ),
