@@ -128,4 +128,4 @@ Nếu bạn có bất kỳ câu hỏi hoặc đề xuất nào, vui lòng liên 
 
 ---
 
-Được phát triển với ❤️ bởi [Your Team/Company Name]
+Được phát triển bởi Lê Tuấn Kiệt
