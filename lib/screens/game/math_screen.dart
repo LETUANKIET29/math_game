@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:lottie/lottie.dart';
 import 'package:math_game/controller/controllers.dart';
 import 'package:math_game/screens/game/game_list_screen.dart';
@@ -655,36 +653,6 @@ class _MathGameScreeenState extends State<MathGameScreeen> {
     );
   }
 
-  // show dialog error
-  void _showDialogError(
-    String message,
-  ) {
-    showDialog(
-        context: context,
-        builder: (context) {
-          return AlertDialog(
-            backgroundColor: Colors.deepPurple,
-            content: IntrinsicHeight(
-              child: Container(
-                padding: const EdgeInsets.all(16),
-                color: Colors.deepPurple,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    Text(
-                      message,
-                      style: whiteTextStyle,
-                      textAlign: TextAlign.center,
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          );
-        });
-  }
-
   // show dialog completed
   void _showDialogCompleted(
       String message, String lottieAsset, bool lockScreens, int userPoint) {
@@ -729,7 +697,10 @@ class _MathGameScreeenState extends State<MathGameScreeen> {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         GestureDetector(
-                          onTap: resetGame,
+                          onTap: () {
+                            Navigator.of(context).pop(); // Đóng dialog trước
+                            resetGame(); // Sau đó reset game
+                          },
                           child: Row(
                             children: [
                               Text(
@@ -780,87 +751,7 @@ class _MathGameScreeenState extends State<MathGameScreeen> {
         });
   }
 
-  // show dialog correct or wrong
-  void _showDialog(String message, String lottieAsset, bool lockScreen,
-      bool showNextQuestion, bool showVideo) {
-    showDialog(
-        context: context,
-        barrierDismissible: lockScreen,
-        builder: (context) {
-          return AlertDialog(
-            backgroundColor: Colors.deepPurple,
-            content: IntrinsicHeight(
-              child: Container(
-                padding: const EdgeInsets.all(16),
-                color: Colors.deepPurple,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    Text(
-                      message,
-                      style: whiteTextStyle,
-                      textAlign: TextAlign.center,
-                    ),
-                    const SizedBox(height: 16),
-                    Lottie.asset(lottieAsset, height: 100),
-                    const SizedBox(height: 16),
-                    if (showVideo)
-                      Center(
-                        child: _videoPlayerController.value.isInitialized
-                            ? AspectRatio(
-                                aspectRatio:
-                                    _videoPlayerController.value.aspectRatio,
-                                child: VideoPlayer(_videoPlayerController),
-                              )
-                            : Container(),
-                      )
-                    else
-                      Container(
-                        padding: const EdgeInsets.all(8),
-                        decoration: BoxDecoration(
-                            color: Colors.green,
-                            borderRadius: BorderRadius.circular(8)),
-                      ),
-                    if (showVideo) const SizedBox(height: 16),
-                    if (showVideo)
-                      FloatingActionButton(
-                        onPressed: () {
-                          setState(() {
-                            _videoPlayerController.value.isPlaying
-                                ? _videoPlayerController.pause()
-                                : _videoPlayerController.play();
-                          });
-                        },
-                        child: Icon(_videoPlayerController.value.isPlaying
-                            ? Icons.pause
-                            : Icons.play_arrow),
-                      ),
-                    if (showNextQuestion) const SizedBox(height: 16),
-                    if (showNextQuestion)
-                      GestureDetector(
-                        onTap: goToNextQuestion,
-                        child: Container(
-                          padding: const EdgeInsets.all(8),
-                          decoration: BoxDecoration(
-                              color: Colors.deepPurple[300],
-                              borderRadius: BorderRadius.circular(8)),
-                          child: const Icon(
-                            Icons.arrow_forward_ios,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                  ],
-                ),
-              ),
-            ),
-          );
-        });
-  }
-
   void resetGame() {
-    Navigator.of(context).pop();
     setState(() {
       userAnswer = '';
       userPoint = 0;
@@ -873,11 +764,9 @@ class _MathGameScreeenState extends State<MathGameScreeen> {
 
   void backtoHome() {
     final GameController controller = Get.find();
-    resetGame();
-    setState(() {
-      controller.shouldReset.value = true;
-      Get.offAllNamed(GameListScreen.routeName);
-    });
+    resetGame(); // Gọi resetGame đã được sửa (không pop dialog)
+    controller.shouldReset.value = true;
+    Get.offAllNamed(GameListScreen.routeName); // Không cần setState ở đây
   }
 
   void checkResult() {

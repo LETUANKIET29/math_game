@@ -1,8 +1,6 @@
-import 'dart:convert';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:http/http.dart' as http;
 import 'package:math_game/firebase/firebase_configs.dart';
 import 'package:math_game/model/game_model.dart';
 import 'package:math_game/screens/game/game_drag_and_drop_screen.dart';
@@ -13,7 +11,6 @@ import 'package:math_game/screens/game/math_screen.dart';
 import 'package:math_game/screens/game/ocean_adventure_screen.dart';
 import 'package:math_game/screens/game/odd_and_even_screen.dart';
 import 'package:math_game/services/game_service.dart';
-import 'package:math_game/utils/api_endpoint.dart';
 
 class GameController extends GetxController {
   static const String routeName = '/mathgame';

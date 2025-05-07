@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 import 'package:math_game/controller/controllers.dart';
 import 'package:math_game/screens/game/game_list_screen.dart';
 import 'package:math_game/widget/firebase_options.dart';
-import 'package:math_game/firebase/firebase_configs.dart';
 import 'package:math_game/services/game_service.dart';
 
 void main() async{
@@ -15,6 +14,9 @@ void main() async{
 
   // Đăng ký các service
   await Get.putAsync(() => GameService().init());
+  
+  // Đảm bảo GameController luôn được đăng ký với phạm vi permanent
+  Get.put(GameController(), permanent: true);
   
   runApp(const MyApp());
 }
@@ -30,10 +32,18 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const GameListScreen(),
-      initialBinding: BindingsBuilder(() {
-        Get.lazyPut<GameController>(() => GameController());
-      }),
+      initialRoute: GameListScreen.routeName,
+      getPages: [
+        GetPage(
+          name: GameListScreen.routeName,
+          page: () => const GameListScreen(),
+          binding: BindingsBuilder(() {
+            // Đảm bảo GameController luôn có sẵn cho GameListScreen
+            Get.find<GameController>();
+          }),
+        ),
+        // Thêm các route khác ở đây nếu cần
+      ],
     );
   }
 }

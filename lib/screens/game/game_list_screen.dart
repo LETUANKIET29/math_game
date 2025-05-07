@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:math_game/configs/configs.dart';
 import 'package:math_game/controller/controllers.dart';
-import 'package:math_game/model/game_model.dart';
-import 'package:math_game/screens/game/game_leaderboard_screen.dart';
 import 'package:math_game/widget/common/custom_app_bar.dart';
 import 'package:math_game/widget/common/progress_widgets.dart';
 
